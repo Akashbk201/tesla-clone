@@ -1,0 +1,501 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tesla Clone</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="style.css">
+    <style type="text/tailwindcss">
+        @theme {
+            --font-display: "Inter", "serif";
+        }
+
+      @layer components {
+        .snap {
+            @apply snap-y snap-mandatory h-screen overflow-scroll transition-all delay-500 scroll-smooth;
+        }
+        .dev-ul {
+            margin: 0;padding: 0;list-style: none;
+        }
+        .dev-ul li{
+            display: inline-block;margin: 0px 8px;
+        }
+        .dev-a {
+           display: inline-block; font-size: 14px;font-weight: 500;color: #171A20;padding: 4px 12px;border-radius: 4px;transition: 0.6s all ease;text-align: center;
+        }
+        
+        .dev-main-sec {
+            @apply w-full h-screen relative snap-always snap-start;
+        }
+        .dev-img {
+            @apply w-full h-full object-cover;
+        }
+        .hero-content-box {
+            @apply absolute top-[35%] md:top-[25%] left-[50%] translate-x-[-50%] translate-y-[-50%] text-center;
+        }
+        .hero-content-box-2 {
+            @apply absolute top-[18%] left-[50%] translate-x-[-50%] translate-y-[-50%];
+        }
+        .hero-content-box-3 {
+            @apply absolute top-[20%] md:top-[50%] left-[50%] md:left-[15%] translate-x-[-50%] translate-y-[-50%];
+        }
+        .dev-title {
+            @apply text-center text-3xl md:text-5xl lg:text-7xl font-bold text-white py-0 md:py-2 relative;
+        }
+        .dev-sub-title {
+            @apply text-center text-lg md:text-3xl font-bold text-white py-1 md:py-2 relative;
+        }
+        .dev-btn {
+            @apply text-center text-lg lg:text-5xl  font-semibold text-white relative inline-block py-2 border-b;
+        }
+        .dev-sub-btn {
+            @apply text-center block text-sm  font-normal bg-slate-100 text-gray-950 py-2 px-6 relative rounded-md mt-2;
+        }
+        .dev-txt {
+            @apply text-center text-sm lg:text-xl font-normal text-gray-50 relative py-1;
+        }
+        .dev-duel-btn {
+            @apply flex flex-col md:flex-row gap-4 justify-center py-6;
+        }
+        .dev-main-btn {
+            @apply basis-1/2 inline-block w-full h-10 text-sm text-white text-center bg-blue-600 hover:bg-blue-900 transition-all delay-75 rounded-md leading-10;
+        }
+        .dev-secondary-btn {
+            @apply basis-1/2 inline-block w-full h-10 text-sm text-gray-800 text-center bg-gray-50 hover:bg-gray-200 transition-all delay-75 rounded-md leading-10;
+        }
+        .btm-btn-box {
+            @apply absolute bottom-[5%] left-[50%] translate-x-[-50%] translate-y-[-50%];
+        }
+        .btm-btn-box-2 {
+            @apply absolute bottom-[5%] left-[50%] translate-x-[-50%] translate-y-[-50%] w-4/5 md:w-1/4 m-auto;
+        }
+        .dev-icon {
+            @apply transition-all delay-75 hover:text-blue-500;
+        }
+      
+        }
+        
+    </style>
+</head>
+
+<body>
+    <main class="snap">
+
+        <!-- Nav Bar start -->
+        <section
+            class="py-4 bg-yellow-100 md:bg-transparent fixed top-0 w-full z-10 hover:bg-yellow-100 transition-all delay-100">
+            <div class="container px-6 m-auto">
+                <div class="grid grid-cols-4 gap-6 md:grid-cols-8 lg:grid-cols-12">
+                    <div class="col-span-4 md:col-span-6 lg:col-span-2">
+                        <div class="flex h-10 items-center justify-start">
+                            <a href="#home"> <img class="w-32" src="images/tesla-log.svg" alt=""></a>
+                        </div>
+                    </div>
+                    <div class="hidden lg:block col-span-8 text-center" id="mob-none">
+                        <div class="flex h-10 items-center justify-center">
+                            <ul class="dev-ul">
+                                <li><a href="#" class="dev-a">Vehicles</a></li>
+                                <li><a href="#" class="dev-a">Energy</a></li>
+                                <li><a href="#" class="dev-a">Charging</a></li>
+                                <li><a href="#" class="dev-a">Discover</a></li>
+                                <li><a href="#" class="dev-a">Shop</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="hidden lg:block col-span-2 text-right" id="mob-none">
+                        <div class="flex h-10 items-center justify-end">
+                            <ul class="dev-ul">
+                                <li><a href="#"><svg class="tds-icon tds-icon-help w-6 dev-icon" viewBox="0 0 24 24"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path fill="currentColor"
+                                                d="M12 20.5a8.5 8.5 0 1 1 0-17 8.5 8.5 0 0 1 0 17m0 1.5c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10m0-6a1 1 0 1 0 0 2 1 1 0 0 0 0-2m.053-3.533a8 8 0 0 1 .92-.767 7 7 0 0 0 .746-.61 2.3 2.3 0 0 0 .468-.635q.189-.38.188-.883 0-.56-.246-1.048-.237-.486-.771-.792-.534-.305-1.362-.305-.862 0-1.411.347a2 2 0 0 0-.788.89q-.09.201-.148.413c-.111.414-.445.767-.874.767-.428 0-.784-.35-.71-.772q.106-.61.386-1.15.452-.875 1.37-1.394Q10.742 6 12.07 6q1.395 0 2.273.544.885.536 1.271 1.337T16 9.489q0 .817-.254 1.403-.255.577-.616.94-.353.363-.943.817-.468.372-.747.635-.27.264-.451.627-.075.149-.113.302c-.108.424-.422.787-.86.787-.437 0-.806-.356-.76-.79a2.95 2.95 0 0 1 .797-1.743">
+                                            </path>
+                                        </svg></a></li>
+                                <li><a href="#"><svg class="tds-icon tds-icon-globe w-6 dev-icon" viewBox="0 0 24 24"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path fill="currentColor"
+                                                d="M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2s10 4.477 10 10M9.254 20.047a8 8 0 0 1-.768-1.378c-.404-.91-.722-1.985-.935-3.169h-3.3a8.53 8.53 0 0 0 5.003 4.547m.603-1.988c.336.757.718 1.324 1.103 1.69.382.364.732.501 1.04.501s.658-.137 1.04-.5c.385-.367.767-.934 1.103-1.69.321-.723.588-1.59.78-2.56H9.076c.192.97.459 1.837.78 2.56ZM8.75 12q.001 1.038.103 2h6.294q.102-.962.103-2-.001-1.038-.103-2H8.853q-.102.962-.103 2m-1.405-2H3.737a8.5 8.5 0 0 0-.237 2c0 .689.082 1.359.237 2h3.608a21 21 0 0 1 0-4m1.732-1.5h5.845c-.19-.97-.458-1.837-.779-2.56-.336-.756-.718-1.323-1.103-1.69-.382-.363-.732-.5-1.04-.5s-.658.137-1.04.5c-.385.367-.767.934-1.103 1.69-.321.723-.588 1.59-.78 2.56m7.577 1.5a20.7 20.7 0 0 1 0 4h3.61a8.5 8.5 0 0 0 .236-2 8.5 8.5 0 0 0-.237-2zm3.094-1.5a8.53 8.53 0 0 0-5.002-4.547c.287.408.543.873.768 1.378.404.91.722 1.985.935 3.169h3.3Zm-12.197 0c.213-1.184.531-2.26.935-3.169.225-.505.48-.97.768-1.378A8.53 8.53 0 0 0 4.252 8.5zm7.963 10.169c-.225.505-.48.97-.768 1.378a8.53 8.53 0 0 0 5.002-4.547h-3.3c-.212 1.184-.53 2.26-.934 3.169">
+                                            </path>
+                                        </svg></a></li>
+                                <li><a href="#"><svg class="tds-icon tds-icon-person w-6 dev-icon" viewBox="0 0 24 24"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path fill="currentColor"
+                                                d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2M6.858 18.752c.605-1.868 2.722-3.24 5.142-3.24s4.537 1.372 5.142 3.24C15.712 19.844 13.933 20.5 12 20.5s-3.712-.656-5.142-1.748m11.469-1.095c-1.02-2.165-3.483-3.645-6.327-3.645s-5.307 1.48-6.327 3.645A8.46 8.46 0 0 1 3.5 12c0-4.687 3.813-8.5 8.5-8.5s8.5 3.813 8.5 8.5a8.46 8.46 0 0 1-2.173 5.657M12 6a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7m0 5.5c-1.103 0-2-.897-2-2s.897-2 2-2 2 .897 2 2-.897 2-2 2">
+                                            </path>
+                                        </svg></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-span-4 md:col-span-6 text-right visible lg:invisible absolute top-6 right-6"
+                        id="mob-icon">
+                        <button class="cursor-pointer" id="hamburger-box">
+                            <svg id="open-menu" class="w-5 md:w-7" xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M3 4H21V6H3V4ZM3 11H21V13H3V11ZM3 18H21V20H3V18Z"></path>
+                            </svg>
+                            <svg id="close-menu" class="w-5 md:w-7" xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M10.5859 12L2.79297 4.20706L4.20718 2.79285L12.0001 10.5857L19.793 2.79285L21.2072 4.20706L13.4143 12L21.2072 19.7928L19.793 21.2071L12.0001 13.4142L4.20718 21.2071L2.79297 19.7928L10.5859 12Z">
+                                </path>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <!-- Mobile Nav bar -->
+                    <div class="fixed top-0 left-0 w-1/2 md:w-1/4 h-full bg-blue-300 py-6 px-6 transition-all delay-200"
+                        id="mobile-nav">
+                        <div class="py-4">
+                            <a href="#home"><img class="w-24" src="images/tesla-log.svg" alt=""></a>
+
+                        </div>
+                        <div class="flex flex-col gap-2 py-4">
+                            <li class="list-none m-0 p-0"><a href="#"
+                                    class="text-base font-semibold text-left">Vehicles</a></li>
+                            <li class="list-none m-0 p-0"><a href="#"
+                                    class="text-base font-semibold text-left">Energy</a></li>
+                            <li class="list-none m-0 p-0"><a href="#"
+                                    class="text-base font-semibold text-left">Charging</a></li>
+                            <li class="list-none m-0 p-0"><a href="#"
+                                    class="text-base font-semibold text-left">Discover</a></li>
+                            <li class="list-none m-0 p-0"><a href="#" class="text-base font-semibold text-left">Shop</a>
+                            </li>
+                        </div>
+                        <div class="py-4">
+                            <ul class="m-0 p-0 flex gap-3">
+                                <li><a href="#"><svg class="tds-icon tds-icon-help w-5 text-gray-95" viewBox="0 0 24 24"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path fill="currentColor"
+                                                d="M12 20.5a8.5 8.5 0 1 1 0-17 8.5 8.5 0 0 1 0 17m0 1.5c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10m0-6a1 1 0 1 0 0 2 1 1 0 0 0 0-2m.053-3.533a8 8 0 0 1 .92-.767 7 7 0 0 0 .746-.61 2.3 2.3 0 0 0 .468-.635q.189-.38.188-.883 0-.56-.246-1.048-.237-.486-.771-.792-.534-.305-1.362-.305-.862 0-1.411.347a2 2 0 0 0-.788.89q-.09.201-.148.413c-.111.414-.445.767-.874.767-.428 0-.784-.35-.71-.772q.106-.61.386-1.15.452-.875 1.37-1.394Q10.742 6 12.07 6q1.395 0 2.273.544.885.536 1.271 1.337T16 9.489q0 .817-.254 1.403-.255.577-.616.94-.353.363-.943.817-.468.372-.747.635-.27.264-.451.627-.075.149-.113.302c-.108.424-.422.787-.86.787-.437 0-.806-.356-.76-.79a2.95 2.95 0 0 1 .797-1.743">
+                                            </path>
+                                        </svg></a></li>
+                                <li><a href="#"><svg class="tds-icon tds-icon-globe w-5 text-gray-950 hover:text-white"
+                                            viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill="currentColor"
+                                                d="M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2s10 4.477 10 10M9.254 20.047a8 8 0 0 1-.768-1.378c-.404-.91-.722-1.985-.935-3.169h-3.3a8.53 8.53 0 0 0 5.003 4.547m.603-1.988c.336.757.718 1.324 1.103 1.69.382.364.732.501 1.04.501s.658-.137 1.04-.5c.385-.367.767-.934 1.103-1.69.321-.723.588-1.59.78-2.56H9.076c.192.97.459 1.837.78 2.56ZM8.75 12q.001 1.038.103 2h6.294q.102-.962.103-2-.001-1.038-.103-2H8.853q-.102.962-.103 2m-1.405-2H3.737a8.5 8.5 0 0 0-.237 2c0 .689.082 1.359.237 2h3.608a21 21 0 0 1 0-4m1.732-1.5h5.845c-.19-.97-.458-1.837-.779-2.56-.336-.756-.718-1.323-1.103-1.69-.382-.363-.732-.5-1.04-.5s-.658.137-1.04.5c-.385.367-.767.934-1.103 1.69-.321.723-.588 1.59-.78 2.56m7.577 1.5a20.7 20.7 0 0 1 0 4h3.61a8.5 8.5 0 0 0 .236-2 8.5 8.5 0 0 0-.237-2zm3.094-1.5a8.53 8.53 0 0 0-5.002-4.547c.287.408.543.873.768 1.378.404.91.722 1.985.935 3.169h3.3Zm-12.197 0c.213-1.184.531-2.26.935-3.169.225-.505.48-.97.768-1.378A8.53 8.53 0 0 0 4.252 8.5zm7.963 10.169c-.225.505-.48.97-.768 1.378a8.53 8.53 0 0 0 5.002-4.547h-3.3c-.212 1.184-.53 2.26-.934 3.169">
+                                            </path>
+                                        </svg></a></li>
+                                <li><a href="#"><svg class="tds-icon tds-icon-person w-5 text-gray-950 hover:text-white"
+                                            viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill="currentColor"
+                                                d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2M6.858 18.752c.605-1.868 2.722-3.24 5.142-3.24s4.537 1.372 5.142 3.24C15.712 19.844 13.933 20.5 12 20.5s-3.712-.656-5.142-1.748m11.469-1.095c-1.02-2.165-3.483-3.645-6.327-3.645s-5.307 1.48-6.327 3.645A8.46 8.46 0 0 1 3.5 12c0-4.687 3.813-8.5 8.5-8.5s8.5 3.813 8.5 8.5a8.46 8.46 0 0 1-2.173 5.657M12 6a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7m0 5.5c-1.103 0-2-.897-2-2s.897-2 2-2 2 .897 2 2-.897 2-2 2">
+                                            </path>
+                                        </svg></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Nav Bar end -->
+
+        <!-- Hero Banner Section start -->
+
+        <section class="dev-main-sec" id="home">
+            <img class="dev-img" src="images/Homepage-Model-Y-Desktop-NA-v3.jpeg" alt="">
+            <div class="hero-content-box">
+                <h2 class="dev-title">Model Y</h2>
+                <p class="dev-btn">$299/mo Leasing
+                </p>
+                <p class="dev-txt">From $31,4901</p>
+                <div class="dev-duel-btn">
+                    <a class="dev-main-btn" href="#">Order Now</a>
+                    <a class="dev-secondary-btn" href="#">Learn More</a>
+                </div>
+            </div>
+            <div class="btm-btn-box">
+                <a href="#new-model-y"><svg
+                        class="w-12 text-blue-600 hover:text-blue-800 transition-all delay-75 animate-bounce"
+                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M12 2C17.52 2 22 6.48 22 12C22 17.52 17.52 22 12 22C6.48 22 2 17.52 2 12C2 6.48 6.48 2 12 2ZM13 12V8H11V12H8L12 16L16 12H13Z">
+                        </path>
+                    </svg></a>
+            </div>
+        </section>
+
+        <!-- Hero Banner Section end -->
+
+        <!-- New Model Y Section start -->
+
+        <section class="dev-main-sec" id="new-model-y">
+            <img class="dev-img" src="images/Homepage-Model-Y-2-Desktop-NA.jpeg" alt="">
+            <div class="hero-content-box">
+                <h2 class="dev-title">New Model Y</h2>
+                <p class="dev-txt">Deliveries Begin in March</p>
+
+            </div>
+            <div class="btm-btn-box-2">
+                <div class="dev-duel-btn">
+                    <a class="dev-main-btn" href="#">Order Now</a>
+                    <a class="dev-secondary-btn" href="#">Learn More</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- New Model Y Section end -->
+
+        <!-- Cybar Truck Section start -->
+
+        <section class="dev-main-sec" id="cyber-truck">
+            <img class="dev-img" src="images/Homepage-Cybertruck-Desktop-v3.jpeg" alt="">
+            <div class="hero-content-box">
+
+                <img class="w-72 m-auto" src="images/cyber-truck-logo.png" alt="">
+                <p class="dev-txt">Lease Starting at $899/mo <sup>2</sup> </p>
+
+            </div>
+            <div class="btm-btn-box-2">
+                <div class="dev-duel-btn">
+                    <a class="dev-main-btn" href="#">Order Now</a>
+                    <a class="dev-secondary-btn" href="#">Learn More</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cyber Truck Section end -->
+
+
+        <!-- Model 3 Section start -->
+
+        <section class="dev-main-sec" id="model-3">
+            <img class="dev-img" src="images/Homepage-Model-3-Desktop-US.jpeg" alt="">
+            <div class="hero-content-box">
+
+                <h2 class="dev-title">Model 3</h2>
+                <p class="dev-btn">$299/mo Leasing</p>
+                <p class="dev-txt">
+                    From $29,990<sup class="text-sm">3</sup>
+                </p>
+
+            </div>
+            <div class="btm-btn-box-2">
+                <div class="dev-duel-btn">
+                    <a class="dev-main-btn" href="#">Order Now</a>
+                    <a class="dev-secondary-btn" href="#">Learn More</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Model 3 Section end -->
+
+        <!-- Model x Section start -->
+
+        <section class="dev-main-sec" id="model-x">
+            <img class="dev-img" src="images/Homepage-Model-X-Desktop-US.jpeg" alt="">
+            <div class="hero-content-box">
+
+                <h2 class="dev-title">Model X</h2>
+                <p class="dev-btn">From $65,990 <sup class="text-sm absolute top-1">4</sup></p>
+                <p class="dev-txt">
+                    After Federal Tax Credit $7,500 <br>
+                    and Est. Gas Savings $6,500
+                </p>
+
+            </div>
+            <div class="btm-btn-box-2">
+                <div class="dev-duel-btn">
+                    <a class="dev-main-btn" href="#">Order Now</a>
+                    <a class="dev-secondary-btn" href="#">Learn More</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Model x Section end -->
+
+        <!-- Model s Section start -->
+
+        <section class="dev-main-sec" id="model-s">
+            <img class="dev-img" src="images/Homepage-Model-S-Desktop-US.jpeg" alt="">
+            <div class="hero-content-box">
+
+                <h2 class="dev-title">Model S</h2>
+                <p class="dev-btn">Free Supercharging Included</p>
+                <p class="dev-txt">
+                    From $73,4905 After Est. Gas Savings $6,500 </p>
+
+            </div>
+            <div class="btm-btn-box-2">
+                <div class="dev-duel-btn">
+                    <a class="dev-main-btn" href="#">Order Now</a>
+                    <a class="dev-secondary-btn" href="#">Learn More</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Model s Section end -->
+
+        <!-- Solar Panels Section start -->
+
+        <section class="dev-main-sec" id="solar-panels">
+            <img class="dev-img" src="images/Homepage-SolarPanels-01-Desktop.jpeg" alt="">
+            <div class="hero-content-box">
+
+                <h2 class="dev-title">Solar Panels</h2>
+                <p class="dev-btn">Schedule a Virtual Consultation</p>
+
+
+            </div>
+            <div class="btm-btn-box-2">
+                <div class="dev-duel-btn">
+                    <a class="dev-main-btn" href="#">Order Now</a>
+                    <a class="dev-secondary-btn" href="#">Learn More</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Solar Panels Section end -->
+
+        <!-- Solar roof Section start -->
+
+        <section class="dev-main-sec" id="solar-roof">
+            <img class="dev-img" src="images/Homepage-SolarRoof-Desktop-US.jpeg" alt="">
+            <div class="hero-content-box">
+
+                <h2 class="dev-title">Solar Roof</h2>
+                <p class="dev-btn">Produce Clean Energy From Your Roof</p>
+
+
+            </div>
+            <div class="btm-btn-box-2">
+                <div class="dev-duel-btn">
+                    <a class="dev-main-btn" href="#">Order Now</a>
+                    <a class="dev-secondary-btn" href="#">Learn More</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Solar roof Section end -->
+
+        <!-- Power Wall Section start -->
+
+        <section class="dev-main-sec" id="powerwall">
+            <img class="dev-img" src="images/Homepage-Powerwall-Desktop-US.jpeg" alt="">
+            <div class="hero-content-box-2">
+                <h2 class="dev-title">Powerwall</h2>
+            </div>
+            <div class="btm-btn-box-2">
+                <div class="dev-duel-btn">
+                    <a class="dev-main-btn" href="#">Order Now</a>
+                    <a class="dev-secondary-btn" href="#">Learn More</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Power Wall Section end -->
+
+        <!-- Accessories Section start -->
+
+        <section class="dev-main-sec" id="accessories">
+            <img class="dev-img" src="images/Homepage-Accessories-Desktop-US.jpeg" alt="">
+            <div class="hero-content-box-2">
+                <h2 class="dev-title">Accessories</h2>
+            </div>
+            <div class="btm-btn-box-2">
+                <div class="dev-duel-btn">
+                    <a class="dev-main-btn" href="#">Order Now</a>
+                    <a class="dev-secondary-btn" href="#">Learn More</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Accessories Section end -->
+
+        <!-- About us Section start -->
+
+        <section class="dev-main-sec" id="about-us">
+            <img class="dev-img" src="images/about-us.gif" alt="">
+            <div class="hero-content-box-3">
+                <h2 class="dev-sub-title">We Are Tesla</h2>
+                <a class="dev-sub-btn" href="#">Join Us</a>
+            </div>
+
+        </section>
+
+        <!-- About us Section end -->
+
+        <!-- Footer Section start -->
+
+        <section class="dev-main-sec" id="footer-sec">
+            <div class="container px-6 m-auto">
+                <div class="flex h-screen items-center flex-col gap-4">
+                    <p class="text-sm text-center w-full md:w-3/5 m-auto py-10 font-semibold text-gray-800">1 Price
+                        before
+                        estimated savings is $46,630, including Destination and Order Fees, but excluding taxes and
+                        other
+                        fees. Subject to change. Vehicle shown has upgrades that will increase the price. Estimated
+                        savings
+                        includes $6,500 in gas savings estimated over five years, the $7,500 Federal Tax Credit and
+                        state
+                        incentives, available to eligible buyers and subject to MSRP caps. Not all vehicles, customers
+                        or
+                        finance options will be eligible. Terms apply.<br><br>
+
+                        2 Monthly lease payment excludes taxes and fees, is based on $79,990 Cybertruck All-Wheel Drive
+                        purchase price and is subject to change at any time. Requires $7,500 down with 36 months and
+                        10,000
+                        miles. Subject to credit approval and available in select U.S. states. Terms apply.<br><br>
+
+                        3 Price before estimated savings is $44,130, including Destination and Order Fees, but excluding
+                        taxes and other fees. Subject to change. Vehicle shown has upgrades that will increase the
+                        price.
+                        Estimated savings includes $6,500 in gas savings estimated over five years, the $7,500 Federal
+                        Tax
+                        Credit and state incentives, available to eligible buyers and subject to MSRP caps. Not all
+                        vehicles, customers or finance options will be eligible. Terms apply.<br><br>
+
+                        4 Price before estimated savings is $81,630, including Destination and Order Fees, but excluding
+                        taxes and other fees. Subject to change. Vehicle shown has upgrades that will increase the
+                        price.
+                        Estimated savings includes $6,500 in gas savings estimated over five years, the $7,500 Federal
+                        Tax
+                        Credit and state incentives, available to eligible buyers and subject to MSRP caps. Not all
+                        vehicles, customers or finance options will be eligible. Terms apply. <br><br>
+
+                        5 Price before estimated savings is $81,630, including Destination and Order Fees, but excluding
+                        taxes and other fees. Subject to change. Vehicle shown has upgrades that will increase the
+                        price.
+                        Estimated savings includes $6,500 in gas savings estimated over five years and state incentives,
+                        available to eligible buyers and subject to MSRP caps. Not all vehicles, customers or finance
+                        options will be eligible. Terms apply.</p>
+
+                    <div class="py-4">
+                        <div class="flex flex-col md:flex-row gap-4">
+                            <a href="#"
+                                class="text-sm font-semibold text-gray-900 hover:text-blue-600 transition-all delay-100 ">Tesla
+                                © 2025</a><a href="#"
+                                class="text-sm font-semibold text-gray-900 hover:text-blue-600 transition-all delay-100 ">Privacy
+                                & Legal</a><a href="#"
+                                class="text-sm font-semibold text-gray-900 hover:text-blue-600 transition-all delay-100 ">
+                                Vehicle Recalls</a><a href="#"
+                                class="text-sm font-semibold text-gray-900 hover:text-blue-600 transition-all delay-100 ">
+                                Contact</a><a href="#"
+                                class="text-sm font-semibold text-gray-900 hover:text-blue-600 transition-all delay-100 ">
+                                News</a><a href="#"
+                                class="text-sm font-semibold text-gray-900 hover:text-blue-600 transition-all delay-100 ">Get
+                                Updates</a><a href="#"
+                                class="text-sm font-semibold text-gray-900 hover:text-blue-600 transition-all delay-100 ">Locations</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer Section end -->
+
+
+
+    </main>
+
+    <!-- JavaScript File -->
+    <script src="custom.js"></script>
+
+</body>
+
+</html>

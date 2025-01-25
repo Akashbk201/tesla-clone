@@ -1,0 +1,10 @@
+* {
+  font-family: "Inter", serif !important;
+}
+
+#mobile-nav {
+  display: none;
+}
+#close-menu {
+  display: none;
+}
